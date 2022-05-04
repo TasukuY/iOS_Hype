@@ -14,7 +14,9 @@ struct HypeStrings {
     static let recordTypeKey = "Hype"
     fileprivate static let bodyKey = "body"
     fileprivate static let timestampKey = "timestamp"
-}
+    fileprivate static let userReferenceKey = "userReference"
+    
+}//End of struct
 
 class Hype {
     
@@ -22,11 +24,13 @@ class Hype {
     var body: String
     var timestamp: Date
     var ckRecordID: CKRecord.ID
+    var userReference: CKRecord.Reference?
     
-    init(body: String, timestamp: Date = Date(), ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)){
+    init(body: String, timestamp: Date = Date(), ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), userReference: CKRecord.Reference?){
         self.body = body
         self.timestamp = timestamp
         self.ckRecordID = ckRecordID
+        self.userReference = userReference
     }
     
 }//End of class
@@ -40,7 +44,9 @@ extension Hype {
               let timestamp = ckRecord[HypeStrings.timestampKey] as? Date
         else { return nil }
         
-        self.init(body: body, timestamp: timestamp, ckRecordID: ckRecord.recordID)
+        let userReference = ckRecord[HypeStrings.userReferenceKey] as? CKRecord.Reference
+        
+        self.init(body: body, timestamp: timestamp, ckRecordID: ckRecord.recordID, userReference: userReference)
     }
     
 }//End of extension
@@ -60,7 +66,8 @@ extension CKRecord {
         
         self.setValuesForKeys([
             HypeStrings.bodyKey : hype.body,
-            HypeStrings.timestampKey : hype.timestamp
+            HypeStrings.timestampKey : hype.timestamp,
+            HypeStrings.userReferenceKey : hype.userReference
         ])
         
         //doing the same thing with a different methods called setValue
