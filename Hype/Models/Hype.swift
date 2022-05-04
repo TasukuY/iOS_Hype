@@ -21,10 +21,12 @@ class Hype {
     //MARK: - Properties
     var body: String
     var timestamp: Date
+    var ckRecordID: CKRecord.ID
     
-    init(body: String, timestamp: Date = Date()){
+    init(body: String, timestamp: Date = Date(), ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)){
         self.body = body
         self.timestamp = timestamp
+        self.ckRecordID = ckRecordID
     }
     
 }//End of class
@@ -38,9 +40,15 @@ extension Hype {
               let timestamp = ckRecord[HypeStrings.timestampKey] as? Date
         else { return nil }
         
-        self.init(body: body, timestamp: timestamp)
+        self.init(body: body, timestamp: timestamp, ckRecordID: ckRecord.recordID)
     }
     
+}//End of extension
+
+extension Hype: Equatable{
+    static func == (lhs: Hype, rhs: Hype) -> Bool{
+        return lhs.ckRecordID == rhs.ckRecordID
+    }
 }//End of extension
 
 extension CKRecord {
@@ -48,7 +56,7 @@ extension CKRecord {
         Packaging our Hype model properties to be stored in a CKRecord and saved to the cloud
      */
     convenience init(hype: Hype) {
-        self.init(recordType: HypeStrings.recordTypeKey)
+        self.init(recordType: HypeStrings.recordTypeKey, recordID: hype.ckRecordID)
         
         self.setValuesForKeys([
             HypeStrings.bodyKey : hype.body,
