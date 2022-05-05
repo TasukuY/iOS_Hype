@@ -22,6 +22,12 @@ class HypeListViewController: UIViewController {
         loadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hypeListTableView.reloadData()
+        updateViews()
+    }
+    
     //MARK: - IBActions
     @IBAction func addHypeButtonTapped(_ sender: Any) {
         presentHypeAlert(nil)
@@ -77,7 +83,7 @@ class HypeListViewController: UIViewController {
                     }
                 }
             } else {
-                HypeController.shared.saveHype(with: text) { success in
+                HypeController.shared.saveHype(with: text, photo: nil) { success in
                     if success {
                         self.updateViews()
                     }

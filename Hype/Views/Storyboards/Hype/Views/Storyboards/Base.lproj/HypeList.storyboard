@@ -57,11 +57,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dKR-1n-YeF">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="c4h-xV-020">
-                            <connections>
-                                <action selector="addHypeButtonTapped:" destination="BYZ-38-t0r" id="e8J-s3-ZSl"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="compose" id="c4h-xV-020">
+                                <connections>
+                                    <action selector="addHypeButtonTapped:" destination="BYZ-38-t0r" id="e8J-s3-ZSl"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="camera" id="vNW-0M-Shs">
+                                <connections>
+                                    <segue destination="sXI-eu-N8t" kind="presentation" id="kVJ-ar-g1N"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="hypeListTableView" destination="gfP-Mh-6nL" id="dau-hC-kQM"/>
@@ -70,6 +77,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="459" y="139"/>
+        </scene>
+        <!--Hype Photo View Controller-->
+        <scene sceneID="ooZ-hl-mcI">
+            <objects>
+                <viewController id="sXI-eu-N8t" customClass="HypePhotoViewController" customModule="Hype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hDO-Km-xEY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="r59-e1-w2G">
+                                <rect key="frame" x="24" y="68" width="366" height="82"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Picture is Worth a Thousand Hypes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO4-rh-ZpP">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do your hype eyes see?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RsW-BS-J2n">
+                                        <rect key="frame" x="0.0" y="48" width="366" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="aLl-Iz-Gid">
+                                <rect key="frame" x="24" y="174" width="366" height="421"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWq-X0-jeC">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="366"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="zWq-X0-jeC" secondAttribute="height" multiplier="1:1" id="hp2-Tr-gFq"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="jsU-jo-giL" kind="embed" identifier="photoPickerVC" id="16b-HQ-pjv"/>
+                                        </connections>
+                                    </containerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="5YA-bg-gNN">
+                                        <rect key="frame" x="0.0" y="390" width="366" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sA4-hQ-0Rc">
+                                                <rect key="frame" x="0.0" y="0.0" width="146.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelButtonTapped:" destination="sXI-eu-N8t" eventType="touchUpInside" id="v6Y-Ej-LPu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fC8-ke-lHc">
+                                                <rect key="frame" x="219.5" y="0.0" width="146.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Confirm"/>
+                                                <connections>
+                                                    <action selector="confirmButtonTapped:" destination="sXI-eu-N8t" eventType="touchUpInside" id="6ji-pg-jt9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SN9-bP-tqW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aLl-Iz-Gid" firstAttribute="leading" secondItem="SN9-bP-tqW" secondAttribute="leading" constant="24" id="0rJ-uc-9YE"/>
+                            <constraint firstItem="r59-e1-w2G" firstAttribute="top" secondItem="SN9-bP-tqW" secondAttribute="top" constant="24" id="9HN-ob-rnk"/>
+                            <constraint firstItem="aLl-Iz-Gid" firstAttribute="top" secondItem="r59-e1-w2G" secondAttribute="bottom" constant="24" id="JZq-2m-mmS"/>
+                            <constraint firstItem="SN9-bP-tqW" firstAttribute="trailing" secondItem="r59-e1-w2G" secondAttribute="trailing" constant="24" id="TWV-Xw-2wG"/>
+                            <constraint firstItem="r59-e1-w2G" firstAttribute="leading" secondItem="SN9-bP-tqW" secondAttribute="leading" constant="24" id="ayy-BB-eEc"/>
+                            <constraint firstItem="SN9-bP-tqW" firstAttribute="trailing" secondItem="aLl-Iz-Gid" secondAttribute="trailing" constant="24" id="bKg-FB-wbl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="hypeTextField" destination="RsW-BS-J2n" id="9Y0-Om-KCm"/>
+                        <outlet property="photocontainerView" destination="zWq-X0-jeC" id="R64-4P-ZGM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AdF-EW-D9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1203" y="139"/>
+        </scene>
+        <!--PhotoPicker-->
+        <scene sceneID="kpc-jZ-xTl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PhotoPicker" id="jsU-jo-giL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mml-ml-oRo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1786" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wot-tC-Aej">

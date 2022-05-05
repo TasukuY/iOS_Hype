@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NmG-rD-3DN">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo Picker View Controller-->
+        <scene sceneID="Kbn-W0-JFo">
+            <objects>
+                <viewController id="NmG-rD-3DN" customClass="PhotoPickerViewController" customModule="Hype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bte-Qh-3CT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-rk-BGP">
+                                <rect key="frame" x="0.0" y="0.0" width="183" height="183"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ell-Yp-2PU">
+                                <rect key="frame" x="0.0" y="0.0" width="183" height="183"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="selectPhotoButtonTapped:" destination="NmG-rD-3DN" eventType="touchUpInside" id="fxD-ut-uNN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zVA-Qs-emt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ell-Yp-2PU" secondAttribute="bottom" id="Kil-Xe-ghj"/>
+                            <constraint firstAttribute="trailing" secondItem="q2W-rk-BGP" secondAttribute="trailing" id="PcO-9j-g6G"/>
+                            <constraint firstItem="ell-Yp-2PU" firstAttribute="top" secondItem="Bte-Qh-3CT" secondAttribute="top" id="Q02-gK-48n"/>
+                            <constraint firstAttribute="bottom" secondItem="q2W-rk-BGP" secondAttribute="bottom" id="Y21-HR-ZFG"/>
+                            <constraint firstItem="q2W-rk-BGP" firstAttribute="leading" secondItem="Bte-Qh-3CT" secondAttribute="leading" id="e6K-U1-ogq"/>
+                            <constraint firstItem="ell-Yp-2PU" firstAttribute="leading" secondItem="Bte-Qh-3CT" secondAttribute="leading" id="fxE-YT-7tB"/>
+                            <constraint firstItem="q2W-rk-BGP" firstAttribute="top" secondItem="Bte-Qh-3CT" secondAttribute="top" id="iQU-IS-X73"/>
+                            <constraint firstAttribute="trailing" secondItem="ell-Yp-2PU" secondAttribute="trailing" id="r7t-ri-Qhw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="q2W-rk-BGP" id="0bq-rH-bUQ"/>
+                        <outlet property="selectPhotoButton" destination="ell-Yp-2PU" id="vn6-px-swQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kay-dE-cCg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-425" y="-54"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

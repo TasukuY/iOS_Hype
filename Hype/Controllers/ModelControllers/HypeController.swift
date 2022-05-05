@@ -5,8 +5,8 @@
 //  Created by Tasuku Yamamoto on 5/2/22.
 //
 
-import Foundation
 import CloudKit
+import UIKit
 
 class HypeController {
     
@@ -20,11 +20,11 @@ class HypeController {
     
     //MARK: - CRUD funcs
     // Create
-    func saveHype(with text: String, completion: @escaping (Bool) -> Void) {
+    func saveHype(with text: String, photo: UIImage?, completion: @escaping (Bool) -> Void) {
         guard let currentUser = UserController.shared.currentUser else { completion(false) ; return }
         let reference = CKRecord.Reference(recordID: currentUser.recordID, action: .none)
         // Init a Hype object
-        let newHype = Hype(body: text, userReference: reference)
+        let newHype = Hype(body: text, hypePhoto: photo, userReference: reference)
         // Package the newHype into a CKRecord
         let hypeRecord = CKRecord(hype: newHype)
         // Saving the hypeRecord to the cloud

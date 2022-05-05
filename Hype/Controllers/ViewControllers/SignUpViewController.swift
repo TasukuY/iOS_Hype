@@ -12,12 +12,15 @@ class SignUpViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var bioTextField: UITextField!
+    @IBOutlet weak var photoContainerView: UIView!
     
     //MARK: - Properties
+    var profilePhoto: UIImage?
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
         fetchUser()
     }
     
@@ -28,7 +31,7 @@ class SignUpViewController: UIViewController {
               !username.isEmpty
         else { return }
         
-        UserController.shared.createUser(with: username, bio: bio) { success in
+        UserController.shared.createUser(with: username, bio: bio, profilePhoto: profilePhoto) { success in
             if success {
                 self.presentHypeListVC()
             }
@@ -36,6 +39,11 @@ class SignUpViewController: UIViewController {
     }
     
     //MARK: - Helper Methods
+    func setupViews() {
+        photoContainerView.layer.cornerRadius = photoContainerView.frame.height / 2
+        photoContainerView.clipsToBounds = true
+    }
+    
     func fetchUser() {
         UserController.shared.fetchUser { success in
             if success {
@@ -53,4 +61,19 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "photoPickerVC" {
+            let destinationVC = segue.destination as? PhotoPickerViewController
+            destinationVC?.delegate = self
+        }
+    }
+    
 }//End of class
+
+extension SignUpViewController: PhotoPickerDelegate {
+    
+    func photoPickerSelected(image: UIImage) {
+        self.profilePhoto = image
+    }
+    
+}//End of extension

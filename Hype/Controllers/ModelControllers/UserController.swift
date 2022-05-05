@@ -5,7 +5,7 @@
 //  Created by Tasuku Yamamoto on 5/4/22.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 class UserController {
@@ -17,13 +17,13 @@ class UserController {
     let publicDB = CKContainer.default().publicCloudDatabase
     
     //MARK: - CRUD funcs
-    func createUser(with username: String, bio: String, completion: @escaping (Bool) -> Void) {
+    func createUser(with username: String, bio: String, profilePhoto: UIImage?, completion: @escaping (Bool) -> Void) {
         //Fetching the CKUserIdentity recordID, creating a reference to use with our User object
         fetchAppleUserReference { reference in
             //Ensure that we can unwrap the reference
             guard let reference = reference else { completion(false) ; return }
             //Init a newUser with the reference
-            let newUser = User(username: username, bio: bio, appleUserReference: reference)
+            let newUser = User(username: username, bio: bio, profilePhoto: profilePhoto, appleUserReference: reference)
             //Create the CKRecord to be saved from the newUser
             let record = CKRecord(user: newUser)
             //Call the .save method to save the newly created CKRecord

@@ -21,6 +21,9 @@
 		C9FBE37228230F6F0038C37F /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE37128230F6F0038C37F /* UserController.swift */; };
 		C9FBE374282319D80038C37F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE373282319D80038C37F /* SignUpViewController.swift */; };
 		C9FBE37728231F490038C37F /* HypeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FBE37528231F490038C37F /* HypeList.storyboard */; };
+		C9FBE37928237C360038C37F /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE37828237C360038C37F /* PhotoPickerViewController.swift */; };
+		C9FBE37C2823A9F10038C37F /* PhotoPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FBE37A2823A9F10038C37F /* PhotoPicker.storyboard */; };
+		C9FBE37E2823AA940038C37F /* HypePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE37D2823AA940038C37F /* HypePhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		C9FBE37128230F6F0038C37F /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		C9FBE373282319D80038C37F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C9FBE37628231F490038C37F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Hype/Views/Storyboards/Base.lproj/HypeList.storyboard; sourceTree = "<group>"; };
+		C9FBE37828237C360038C37F /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		C9FBE37B2823A9F10038C37F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Hype/Views/Storyboards/Base.lproj/PhotoPicker.storyboard; sourceTree = "<group>"; };
+		C9FBE37D2823AA940038C37F /* HypePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypePhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 			children = (
 				C92F902E2820798800E0C368 /* Main.storyboard */,
 				C9FBE37528231F490038C37F /* HypeList.storyboard */,
+				C9FBE37A2823A9F10038C37F /* PhotoPicker.storyboard */,
 				C92F90332820798900E0C368 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -137,6 +144,8 @@
 			children = (
 				C92F904D28208AFC00E0C368 /* HypeListViewController.swift */,
 				C9FBE373282319D80038C37F /* SignUpViewController.swift */,
+				C9FBE37828237C360038C37F /* PhotoPickerViewController.swift */,
+				C9FBE37D2823AA940038C37F /* HypePhotoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -225,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9FBE37728231F490038C37F /* HypeList.storyboard in Resources */,
+				C9FBE37C2823A9F10038C37F /* PhotoPicker.storyboard in Resources */,
 				C92F90352820798900E0C368 /* LaunchScreen.storyboard in Resources */,
 				C92F90322820798900E0C368 /* Assets.xcassets in Resources */,
 				C92F90302820798800E0C368 /* Main.storyboard in Resources */,
@@ -243,6 +253,8 @@
 				C9FBE37228230F6F0038C37F /* UserController.swift in Sources */,
 				C92F904C2820806C00E0C368 /* HypeController.swift in Sources */,
 				C92F904E28208AFC00E0C368 /* HypeListViewController.swift in Sources */,
+				C9FBE37928237C360038C37F /* PhotoPickerViewController.swift in Sources */,
+				C9FBE37E2823AA940038C37F /* HypePhotoViewController.swift in Sources */,
 				C92F902B2820798800E0C368 /* SceneDelegate.swift in Sources */,
 				C9FBE374282319D80038C37F /* SignUpViewController.swift in Sources */,
 				C92F904828207AEA00E0C368 /* Hype.swift in Sources */,
@@ -275,6 +287,14 @@
 				C9FBE37628231F490038C37F /* Base */,
 			);
 			name = HypeList.storyboard;
+			sourceTree = "<group>";
+		};
+		C9FBE37A2823A9F10038C37F /* PhotoPicker.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9FBE37B2823A9F10038C37F /* Base */,
+			);
+			name = PhotoPicker.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
